@@ -100,5 +100,8 @@ ENV/
 # mypy
 .mypy_cache/
 
+# Intellij
+*.iml
+*/*.iml
 *.xml
 *.iml
