@@ -105,3 +105,5 @@ ENV/
 */*.iml
 *.xml
 *.iml
+.DS_Store
+soos2/.idea/soos2.iml
