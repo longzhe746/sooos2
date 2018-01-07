@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 from django.contrib.auth.models import AbstractUser
@@ -24,4 +25,19 @@ class EmailverifyRecord(models.Model):
     code = models.CharField(max_length=20,verbose_name='验证码')
     email = models.EmailField(max_length=50,verbose_name='邮箱')
     send_type = models.CharField(choices=(('register','注册'),('forget','找回密码')),max_length=10)
-    send_time = models.DateTimeField
+    send_time = models.DateTimeField(default=timezone.now )
+
+    class Meta:
+        verbose_name = '邮箱验证'
+        verbose_name_plural = verbose_name
+
+class Banner(models.Model):
+    title = models.CharField(max_length=100,verbose_name='标题')
+    image = models.ImageField(upload_to='banner/%Y/%m',verbose_name='轮播图',max_length=100)
+    url = models.URLField(max_length=200,verbose_name='访问地址')
+    index = models.IntegerField(default=100,verbose_name='顺序')
+    add_time = models.DateTimeField(default=timezone.now,verbose_name='添加时间')
+
+    class Meta:
+        verbose_name = '轮播图'
+        verbose_name_plural = verbose_name
