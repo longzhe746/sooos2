@@ -16,6 +16,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
+sys.path.insert(1,os.path.join(BASE_DIR,'extra_apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,6 +44,9 @@ INSTALLED_APPS = [
     'courses',
     'organization',
     'operation',
+    'xadmin',
+    'crispy_forms',
+    'DjangoUeditor',
 ]
 
 # user model
@@ -72,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.template.context_processors.media', version:1.11
             ],
         },
     },
