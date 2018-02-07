@@ -21,6 +21,7 @@ class UserProfile(AbstractUser):
     def __str__(self):
         return self.username
 
+
 class EmailverifyRecord(models.Model):
     code = models.CharField(max_length=20,verbose_name='验证码')
     email = models.EmailField(max_length=50,verbose_name='邮箱')
