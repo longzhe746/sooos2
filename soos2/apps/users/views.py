@@ -27,7 +27,7 @@ class LoginView(View):
     def post(self, request):
         login_form = LoginForm(request.POST)
         if not login_form.is_valid():
-            return render(request, 'login.html')
+            return render(request, 'login.html', {'msg': '用户名密码错误!', 'login_form': login_form})
 
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -37,6 +37,6 @@ class LoginView(View):
             user_login(request, user)
             return render(request, 'index.html')
         else:
-            return render(request, 'login.html', {'msg': '用户名密码错误!'})
+            return render(request, 'login.html', {'msg': '用户名密码错误!', 'login_form': login_form})
 
 
